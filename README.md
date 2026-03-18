@@ -12,10 +12,22 @@ electron-app/
 ├── public/                # Static assets for renderer process
 │   ├── index.html         # Main HTML file
 │   └── renderer.js        # Renderer process script
+├── docs/                  # Detailed documentation
+│   ├── README.md          # Documentation index
+│   ├── development/       # Developer guides
+│   ├── user/              # User documentation
+│   └── api/               # API references
 ├── package.json           # Project dependencies and scripts
 ├── forge.config.js        # Electron Forge configuration
 └── README.md              # This file
 ```
+
+## Documentation
+
+For detailed documentation, see the [docs/](docs/) folder:
+- [Development Setup](docs/development/setup.md)
+- [User Guide](docs/user/guide.md)
+- [API Reference](docs/api/)
 
 ## Prerequisites
 - Node.js LTS
