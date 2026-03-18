@@ -16,6 +16,46 @@
     <h1>Hello from Electron renderer!</h1>
     <p>👋</p>
     <p id="info"></p>
+    <h2>OPC UA Credentials</h2>
+    <form id="opcua-credentials">
+      <label>
+        Mode:
+        <select id="opcua-credential-mode">
+          <option value="anonymous">Anonymous</option>
+          <option value="username">Username/Password</option>
+        </select>
+      </label>
+      <label>
+        Username:
+        <input id="opcua-username" type="text" autocomplete="username" />
+      </label>
+      <label>
+        Password:
+        <input id="opcua-password" type="password" autocomplete="current-password" />
+      </label>
+      <button type="submit">Apply</button>
+    </form>
+    <h2>OPC UA Server</h2>
+    <form id="opcua-endpoint-form">
+      <label>
+        Server:
+        <select id="opcua-endpoint-select">
+          <option value="opc.tcp://milo.digitalpetri.com:62541/milo">Milo Demo Server</option>
+          <option value="opc.tcp://localhost:4840">Localhost (default)</option>
+          <option value="custom">Custom...</option>
+        </select>
+      </label>
+      <label>
+        Endpoint URL:
+        <input id="opcua-endpoint-input" type="text" placeholder="opc.tcp://host:port/path" />
+      </label>
+      <button type="submit">Apply</button>
+    </form>
+    <h2>OPC UA Nodes</h2>
+    <p id="opcua-status">Waiting to load...</p>
+    <p id="opcua-server">Server: (not set)</p>
+    <ul id="opcua-steps"></ul>
+    <ul id="opcua-nodes"></ul>
   </body>
   <script src="./renderer.js"></script>
 </html>

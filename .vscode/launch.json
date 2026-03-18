@@ -1,32 +1,25 @@
 {
-    "version": "0.2.0",
-    "compounds": [
-      {
-        "name": "Main + renderer",
-        "configurations": ["Main", "Renderer"],
-        "stopAll": true
-      }
-    ],
-    "configurations": [
-      {
-        "name": "Renderer",
-        "port": 9222,
-        "request": "attach",
-        "type": "chrome",
-        "webRoot": "${workspaceFolder}"
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Electron Main",
+      "type": "pwa-node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "OPCUA_ENDPOINT": "opc.tcp://localhost:4840"
       },
-      {
-        "name": "Main",
-        "type": "node",
-        "request": "launch",
-        "cwd": "${workspaceFolder}",
-        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
-        "windows": {
-          "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
-        },
-        "args": [".", "--remote-debugging-port=9222"],
-        "outputCapture": "std",
-        "console": "integratedTerminal"
-      }
-    ]
-  }
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Electron Renderer",
+      "type": "pwa-chrome",
+      "request": "attach",
+      "port": 9222,
+      "timeout": 30000,
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

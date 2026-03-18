@@ -7,3 +7,9 @@ contextBridge.exposeInMainWorld('versions', {
   electron: () => process.versions.electron,
   ping: () => ipcRenderer.invoke('ping')
 })
+
+contextBridge.exposeInMainWorld('opcua', {
+  getNodes: () => ipcRenderer.invoke('opcua:getNodes'),
+  setCredentials: (credentials) => ipcRenderer.invoke('opcua:setCredentials', credentials),
+  setEndpoint: (endpoint) => ipcRenderer.invoke('opcua:setEndpoint', endpoint)
+})

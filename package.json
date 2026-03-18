@@ -24,6 +24,10 @@
     "electron": "^34.2.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "node-opcua": "^2.120.0"
+  },
+  "overrides": {
+    "hexy": "0.3.3"
   }
 }
