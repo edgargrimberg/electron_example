@@ -2,6 +2,21 @@
 
 Small Electron app that connects to an OPC UA server and shows node values in the renderer.
 
+## Project Structure
+
+```
+electron-app/
+├── src/                    # Main process and preload scripts
+│   ├── main.js            # Electron main process
+│   └── preload.js         # Preload script for secure IPC
+├── public/                # Static assets for renderer process
+│   ├── index.html         # Main HTML file
+│   └── renderer.js        # Renderer process script
+├── package.json           # Project dependencies and scripts
+├── forge.config.js        # Electron Forge configuration
+└── README.md              # This file
+```
+
 ## Prerequisites
 - Node.js LTS
 - npm
@@ -24,7 +39,7 @@ OPCUA_ENDPOINT=opc.tcp://YOUR_SERVER:4840 npm start
 ```
 
 ## Debug in VS Code
-The easiest flow is to launch from VS Code with a `launch.json` and set breakpoints in `main.js`, `preload.js`, and `renderer.js`.
+The easiest flow is to launch from VS Code with a `launch.json` and set breakpoints in `src/main.js`, `src/preload.js`, and `public/renderer.js`.
 
 Create `.vscode/launch.json`:
 ```json
@@ -49,7 +64,7 @@ Create `.vscode/launch.json`:
       "request": "attach",
       "port": 9222,
       "timeout": 30000,
-      "webRoot": "${workspaceFolder}"
+      "webRoot": "${workspaceFolder}/public"
     }
   ]
 }
