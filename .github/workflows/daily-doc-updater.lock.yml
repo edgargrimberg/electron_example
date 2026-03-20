@@ -28,13 +28,10 @@
 #   Imports:
 #     - shared/mcp/qmd-docs.md
 #
-# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"d7c25d53c382ec8b9447f59816f76d4ef2cda5c190b5eaaf3f339309eab65854","compiler_version":"v0.61.1","strict":true}
+# gh-aw-metadata: {"schema_version":"v2","frontmatter_hash":"dd907bdb80939f80790ada26bb248ae54a4ff90f97cd0c4ce511565be75d636d","compiler_version":"v0.61.1","strict":true}
 
 name: "Daily Documentation Updater"
 "on":
-  schedule:
-  - cron: "52 4 * * *"
-    # Friendly format: daily (scattered)
   workflow_dispatch:
 
 permissions: {}
@@ -255,8 +252,6 @@ jobs:
       contents: read
       issues: read
       pull-requests: read
-    concurrency:
-      group: "gh-aw-copilot-${{ github.workflow }}"
     env:
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
       GH_AW_ASSETS_ALLOWED_EXTS: ""
